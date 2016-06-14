@@ -27,6 +27,8 @@ mysql -uroot -pqwer1234 -e "CREATE DATABASE xsolla2;" &&
 #insert test data
 mysql --user="root" --password="qwer1234" --database="xsolla2" --execute="insert into user(username,password,apikey) values('user2','password','apikey');"&&
 
+
+#sozdat' papky polzovatelya
 #run
 
 
