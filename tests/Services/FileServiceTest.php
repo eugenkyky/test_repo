@@ -48,10 +48,10 @@ class FileServiceTest extends \PHPUnit_Framework_TestCase
         //TODO Если существует - надо ругаться
         $body = fopen(__DIR__.'/testfile.txt', 'r');
         //Создаю на сервере
-        $response = $this->client->request('POST',  self::SERVER_BASE_ADDRESS.'/files/testfile.txt?apikey=apikey123123', ['body' => $body]);
+        $response = $this->client->request('POST',  self::SERVER_BASE_ADDRESS.'/files/testfile.txt?apikey=apikey', ['body' => $body]);
         $this->assertEquals(201, $response->getStatusCode());
         //Заберем файл с сервера и проверим его.
-        $response = $this->client->request('GET',   self::SERVER_BASE_ADDRESS.'/files/testfile.txt?apikey=apikey3123123');
+        $response = $this->client->request('GET',   self::SERVER_BASE_ADDRESS.'/files/testfile.txt?apikey=apikey');
         $this->assertEquals(200, $response->getStatusCode());
         //Сохраним файл, посмотрим, что там есть
         $fs = new Filesystem();
