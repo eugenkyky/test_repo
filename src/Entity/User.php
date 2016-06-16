@@ -1,5 +1,5 @@
 <?php
-// src/AppBundle/Entity/User.php
+
 namespace Services\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -8,7 +8,6 @@ use Symfony\Component\Security\Core\User\UserInterface;
 /**
 * @Table(name="user")
 * @Entity
-*
 */
 class User implements UserInterface
 {
@@ -25,27 +24,14 @@ class User implements UserInterface
     private $username;
 
     /**
-    * @Column(type="string", length=64)
+    * @Column(type="string", length=64, unique=true)
     */
     private $password;
 
     /**
-     * @Column(type="string", length=64)
+     * @Column(type="string", length=64, unique=true)
      */
     private $apikey;
-
-    /**
-     * @Column(type="bigint")
-     */
-    /*private $consumedplace;
-
-    public function getConsumedplace(){ //Для чего getter and setter нужны вообще?
-        return $this->consumedplace;
-    }
-
-    public function setConsumedplace($bytes){
-        $this->consumedplace = $bytes;
-    }*/
 
     public function getUsername()
     {
@@ -57,11 +43,9 @@ class User implements UserInterface
         return $this->apikey;
     }
 
-
     public function getSalt()
     {
         // you *may* need a real salt depending on your encoder
-        // see section on salt below
         return null;
     }
 
@@ -77,5 +61,6 @@ class User implements UserInterface
 
     public function eraseCredentials()
     {
+        return null;
     }
 }

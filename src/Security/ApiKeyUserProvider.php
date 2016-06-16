@@ -1,35 +1,10 @@
 <?php
-/**
- * This class is a UserProvider for the Symfony Security component,
- * implementing its UserProviderInterface
- * @author  David Raison <david@tentwentyfour.lu>
- */
 
 namespace Services\Security;
 
-/*class ApiKeyUserProvider extends DatabaseUserProvider {
-    /**
-     * Implements getUsernameForApiKey used in the ApiKeyAuthenticator
-     *
-     * The ApiKeyAuthenticator will throw an exception if the returned value is falsy,
-     * so we don't throw any Exception here.
+use Symfony\Component\Security\Core\User\{UserProviderInterface,UserInterface};
+use Symfony\Component\Security\Core\Exception\{UnsupportedUserException,AuthenticationException };
 
-    public function getUsernameForApiKey($apiKey)
-    {
-        $user = $this->repository->findOneByApikey($apiKey); // вот это вообще не поняо как работатет/ Видимо просто по названию
-        if ($user) {
-            return $user->getUsername();
-        }
-        return false;
-    }
-}*/
-namespace Services\Security;
-
-use Services\Entity\User;
-use Symfony\Component\Security\Acl\Exception\Exception;
-use Symfony\Component\Security\Core\User\{ UserProviderInterface,UserInterface};
-use Symfony\Component\Security\Core\Exception\{UsernameNotFoundException,UnsupportedUserException};
-use Symfony\Component\Security\Core\Exception\AuthenticationException;
 require __DIR__.'/../Entity/User.php';
 
 class ApiKeyUserProvider implements UserProviderInterface
@@ -40,17 +15,19 @@ class ApiKeyUserProvider implements UserProviderInterface
     {
         $this->conn = $em;
     }
-    public function supportsClass($class)
+
+    public function supportsClass($class): bool
     {
         return $class === 'Services\Entity\User';
     }
 
-    public function loadUserByUsername($username) //в моем примере не используется
+    public function loadUserByUsername($username): UserInterface
     {
-        // finding user data
+        //TODO
         /*
-        $userData = '...';
-        // pretend it returns an array on success, false if there is no user
+        finding user data
+        $userData = db('select ..');
+
         if ($userData) {
             $password = '...';
             // ...
@@ -62,19 +39,18 @@ class ApiKeyUserProvider implements UserProviderInterface
         );*/
     }
 
-    public function refreshUser(UserInterface $user)
+    public function refreshUser(UserInterface $user): UserInterface
     {
         if (!$user instanceof WebserviceUser) {
             throw new UnsupportedUserException(
                 sprintf('Instances of "%s" are not supported.', get_class($user))
             );
         }
-
         return $this->loadUserByUsername($user->getUsername());
     }
 
-    public function getUsernameForApiKey($apiKey){
-
+    public function getUsernameForApiKey($apiKey): UserInterface
+    {
         $user = $this->conn->getRepository('Services\Entity\User')->findOneBy(array('apikey' => $apiKey));
         if (!$user) {
             throw new AuthenticationException(

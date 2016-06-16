@@ -21,6 +21,14 @@ use Symfony\Component\Debug\ExceptionHandler;
 //EXCEPTIONS
 $app['debug'] = true;
 
+//ERROR MESSAGES
+$app[400] = 'Bad request';
+$app[404] = 'File not found';
+$app[500] = 'Internal Server Error';
+
+//FILES STORE
+$app['store_dir'] =  __DIR__.'/../users_files/';
+
 /*
 //https://github.com/silexphp/Silex/issues/1016
 // Convert simple errors into nice Exception, automaticaly handled by Silex.
