@@ -29,13 +29,18 @@ class FileServiceTest extends \PHPUnit_Framework_TestCase
         $this->assertArrayHasKey('files', $data);
     }
 
-    public function testauthentication(){
+    /**
+     * @expectedException ClientException
+     */
+    public function testAuthentication(){
+        $this->client->get( self::SERVER_BASE_ADDRESS.'/files');
+    }
 
-        $response = $this->client->get( self::SERVER_BASE_ADDRESS.'/files');
-        $this->assertEquals(403, $response->getStatusCode());
-
-        $response = $this->client->get( self::SERVER_BASE_ADDRESS.'/files?apikey=not_existed_api_key');
-        $this->assertEquals(403, $response->getStatusCode());
+    /**
+     * @expectedException ClientException
+     */
+    public function testAuthentication2(){
+       $this->client->get( self::SERVER_BASE_ADDRESS.'/files?apikey=not_existed_api_key');
     }
 
     public function testCreateFile()
