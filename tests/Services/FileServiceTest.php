@@ -69,8 +69,6 @@ class FileServiceTest extends \PHPUnit_Framework_TestCase
     public function testCreateFileGzipRequest(){
 
         $file_string_content = file_get_contents(__DIR__.'/testfile.txt');
-        print __DIR__.'/testfile.txt';
-        print $file_string_content;
         //encode file
         $compressed = gzencode($file_string_content);
         //create on server
