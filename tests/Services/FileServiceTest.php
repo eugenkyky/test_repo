@@ -90,7 +90,7 @@ class FileServiceTest extends \PHPUnit_Framework_TestCase
      * @depends testCreateFile
      */
     public function testUpdateFile() {
-        $body = fopen(__DIR__.'\testfile_update.txt', 'r');
+        $body = fopen(__DIR__.'/testfile_update.txt', 'r');
         $response = $this->client->request('PUT',  self::SERVER_BASE_ADDRESS.'/files/testfile.txt?apikey=apikey', ['body' => $body]);
         $this->assertEquals(200, $response->getStatusCode());
         $response = $this->client->request('GET',  self::SERVER_BASE_ADDRESS.'/files/testfile.txt?apikey=apikey');
