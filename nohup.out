@@ -1,1 +1,55 @@
 [Thu Jun 16 19:18:06 2016] Failed to listen on 127.0.0.1:80 (reason: Permission denied)
+[Thu Jun 16 21:25:12 2016] PHP Warning:  file_get_contents(testfile.txt): failed to open stream: No such file or directory in /home/user/Desktop/xsolla/src/Services/FileService.php on line 233
+[Thu Jun 16 21:25:12 2016] PHP Fatal error:  Uncaught Error: Access to undeclared static property: Services\FileService::$CODE_500_TEXT in /home/user/Desktop/xsolla/web/index.php:74
+Stack trace:
+#0 [internal function]: {closure}(Object(UnexpectedValueException), 500)
+#1 /home/user/Desktop/xsolla/vendor/silex/silex/src/Silex/ExceptionListenerWrapper.php(53): call_user_func(Object(Closure), Object(UnexpectedValueException), 500)
+#2 [internal function]: Silex\ExceptionListenerWrapper->__invoke(Object(Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent), 'kernel.exceptio...', Object(Symfony\Component\EventDispatcher\EventDispatcher))
+#3 /home/user/Desktop/xsolla/vendor/symfony/event-dispatcher/EventDispatcher.php(174): call_user_func(Object(Silex\ExceptionListenerWrapper), Object(Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent), 'kernel.exceptio...', Object(Symfony\Component\EventDispatcher\EventDispatcher))
+#4 /home/user/Desktop/xsolla/vendor/symfony/event-dispatcher/EventDispatcher.php(43): Symfony\Component\EventDispatcher\Eve in /home/user/Desktop/xsolla/web/index.php on line 74
+[Thu Jun 16 21:25:12 2016] PHP Warning:  file_get_contents(gzip_testfile.txt): failed to open stream: No such file or directory in /home/user/Desktop/xsolla/src/Services/FileService.php on line 233
+[Thu Jun 16 21:25:12 2016] PHP Fatal error:  Uncaught Error: Access to undeclared static property: Services\FileService::$CODE_500_TEXT in /home/user/Desktop/xsolla/web/index.php:74
+Stack trace:
+#0 [internal function]: {closure}(Object(UnexpectedValueException), 500)
+#1 /home/user/Desktop/xsolla/vendor/silex/silex/src/Silex/ExceptionListenerWrapper.php(53): call_user_func(Object(Closure), Object(UnexpectedValueException), 500)
+#2 [internal function]: Silex\ExceptionListenerWrapper->__invoke(Object(Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent), 'kernel.exceptio...', Object(Symfony\Component\EventDispatcher\EventDispatcher))
+#3 /home/user/Desktop/xsolla/vendor/symfony/event-dispatcher/EventDispatcher.php(174): call_user_func(Object(Silex\ExceptionListenerWrapper), Object(Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent), 'kernel.exceptio...', Object(Symfony\Component\EventDispatcher\EventDispatcher))
+#4 /home/user/Desktop/xsolla/vendor/symfony/event-dispatcher/EventDispatcher.php(43): Symfony\Component\EventDispatcher\Eve in /home/user/Desktop/xsolla/web/index.php on line 74
+[Thu Jun 16 21:26:49 2016] PHP Warning:  file_get_contents(testfile.txt): failed to open stream: No such file or directory in /home/user/Desktop/xsolla/src/Services/FileService.php on line 233
+[Thu Jun 16 21:26:49 2016] PHP Fatal error:  Uncaught Error: Access to undeclared static property: Services\FileService::$CODE_500_TEXT in /home/user/Desktop/xsolla/web/index.php:74
+Stack trace:
+#0 [internal function]: {closure}(Object(UnexpectedValueException), 500)
+#1 /home/user/Desktop/xsolla/vendor/silex/silex/src/Silex/ExceptionListenerWrapper.php(53): call_user_func(Object(Closure), Object(UnexpectedValueException), 500)
+#2 [internal function]: Silex\ExceptionListenerWrapper->__invoke(Object(Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent), 'kernel.exceptio...', Object(Symfony\Component\EventDispatcher\EventDispatcher))
+#3 /home/user/Desktop/xsolla/vendor/symfony/event-dispatcher/EventDispatcher.php(174): call_user_func(Object(Silex\ExceptionListenerWrapper), Object(Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent), 'kernel.exceptio...', Object(Symfony\Component\EventDispatcher\EventDispatcher))
+#4 /home/user/Desktop/xsolla/vendor/symfony/event-dispatcher/EventDispatcher.php(43): Symfony\Component\EventDispatcher\Eve in /home/user/Desktop/xsolla/web/index.php on line 74
+[Thu Jun 16 21:26:49 2016] PHP Warning:  file_get_contents(gzip_testfile.txt): failed to open stream: No such file or directory in /home/user/Desktop/xsolla/src/Services/FileService.php on line 233
+[Thu Jun 16 21:26:49 2016] PHP Fatal error:  Uncaught Error: Access to undeclared static property: Services\FileService::$CODE_500_TEXT in /home/user/Desktop/xsolla/web/index.php:74
+Stack trace:
+#0 [internal function]: {closure}(Object(UnexpectedValueException), 500)
+#1 /home/user/Desktop/xsolla/vendor/silex/silex/src/Silex/ExceptionListenerWrapper.php(53): call_user_func(Object(Closure), Object(UnexpectedValueException), 500)
+#2 [internal function]: Silex\ExceptionListenerWrapper->__invoke(Object(Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent), 'kernel.exceptio...', Object(Symfony\Component\EventDispatcher\EventDispatcher))
+#3 /home/user/Desktop/xsolla/vendor/symfony/event-dispatcher/EventDispatcher.php(174): call_user_func(Object(Silex\ExceptionListenerWrapper), Object(Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent), 'kernel.exceptio...', Object(Symfony\Component\EventDispatcher\EventDispatcher))
+#4 /home/user/Desktop/xsolla/vendor/symfony/event-dispatcher/EventDispatcher.php(43): Symfony\Component\EventDispatcher\Eve in /home/user/Desktop/xsolla/web/index.php on line 74
+[Thu Jun 16 21:27:37 2016] PHP Warning:  file_get_contents(testfile.txt): failed to open stream: No such file or directory in /home/user/Desktop/xsolla/src/Services/FileService.php on line 233
+[Thu Jun 16 21:27:37 2016] PHP Fatal error:  Uncaught Error: Access to undeclared static property: Services\FileService::$CODE_500_TEXT in /home/user/Desktop/xsolla/web/index.php:74
+Stack trace:
+#0 [internal function]: {closure}(Object(UnexpectedValueException), 500)
+#1 /home/user/Desktop/xsolla/vendor/silex/silex/src/Silex/ExceptionListenerWrapper.php(53): call_user_func(Object(Closure), Object(UnexpectedValueException), 500)
+#2 [internal function]: Silex\ExceptionListenerWrapper->__invoke(Object(Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent), 'kernel.exceptio...', Object(Symfony\Component\EventDispatcher\EventDispatcher))
+#3 /home/user/Desktop/xsolla/vendor/symfony/event-dispatcher/EventDispatcher.php(174): call_user_func(Object(Silex\ExceptionListenerWrapper), Object(Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent), 'kernel.exceptio...', Object(Symfony\Component\EventDispatcher\EventDispatcher))
+#4 /home/user/Desktop/xsolla/vendor/symfony/event-dispatcher/EventDispatcher.php(43): Symfony\Component\EventDispatcher\Eve in /home/user/Desktop/xsolla/web/index.php on line 74
+[Thu Jun 16 21:27:37 2016] PHP Warning:  file_get_contents(gzip_testfile.txt): failed to open stream: No such file or directory in /home/user/Desktop/xsolla/src/Services/FileService.php on line 233
+[Thu Jun 16 21:27:37 2016] PHP Fatal error:  Uncaught Error: Access to undeclared static property: Services\FileService::$CODE_500_TEXT in /home/user/Desktop/xsolla/web/index.php:74
+Stack trace:
+#0 [internal function]: {closure}(Object(UnexpectedValueException), 500)
+#1 /home/user/Desktop/xsolla/vendor/silex/silex/src/Silex/ExceptionListenerWrapper.php(53): call_user_func(Object(Closure), Object(UnexpectedValueException), 500)
+#2 [internal function]: Silex\ExceptionListenerWrapper->__invoke(Object(Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent), 'kernel.exceptio...', Object(Symfony\Component\EventDispatcher\EventDispatcher))
+#3 /home/user/Desktop/xsolla/vendor/symfony/event-dispatcher/EventDispatcher.php(174): call_user_func(Object(Silex\ExceptionListenerWrapper), Object(Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent), 'kernel.exceptio...', Object(Symfony\Component\EventDispatcher\EventDispatcher))
+#4 /home/user/Desktop/xsolla/vendor/symfony/event-dispatcher/EventDispatcher.php(43): Symfony\Component\EventDispatcher\Eve in /home/user/Desktop/xsolla/web/index.php on line 74
+[Thu Jun 16 21:48:52 2016] PHP Warning:  file_get_contents(testfile.txt): failed to open stream: No such file or directory in /home/user/Desktop/xsolla/src/Services/FileService.php on line 233
+[Thu Jun 16 21:48:52 2016] PHP Warning:  file_get_contents(gzip_testfile.txt): failed to open stream: No such file or directory in /home/user/Desktop/xsolla/src/Services/FileService.php on line 233
+[Thu Jun 16 21:57:36 2016] PHP Warning:  file_get_contents(testfile.txt): failed to open stream: No such file or directory in /home/user/Desktop/xsolla/src/Services/FileService.php on line 233
+[Thu Jun 16 21:57:36 2016] PHP Warning:  file_get_contents(gzip_testfile.txt): failed to open stream: No such file or directory in /home/user/Desktop/xsolla/src/Services/FileService.php on line 233
+[Thu Jun 16 22:03:33 2016] PHP Warning:  file_get_contents(testfile.txt): failed to open stream: No such file or directory in /home/user/Desktop/xsolla/src/Services/FileService.php on line 233
+[Thu Jun 16 22:03:33 2016] PHP Warning:  file_get_contents(gzip_testfile.txt): failed to open stream: No such file or directory in /home/user/Desktop/xsolla/src/Services/FileService.php on line 233

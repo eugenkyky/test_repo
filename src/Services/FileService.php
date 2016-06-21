@@ -96,7 +96,7 @@ class FileService
             if (!file_exists($file_path)) {
                 $users_dir = self::getCurrentUserDir($app);
                 $content = $request->getContent();
-                $current_consumed_place = $this->dirSize($app['store_dir'] . $users_dir);
+                $current_consumed_place = self::dirSize($app['store_dir'] . $users_dir);
                 $encoding = $request->query->get('file_encode');
                 if ($encoding == null) {
                     //pass
@@ -154,7 +154,7 @@ class FileService
                 $content = $request->getContent();
                 $users_dir = self::getCurrentUserDir($app);
                 $current_consumed_place = self::dirSize($app['store_dir'] . $users_dir);
-                $current_file_size = filesize($file_path); //todo 32 bit OS
+                $current_file_size = filesize($file_path);
 
                 $encoding = $request->query->get('file_encode');
                 if ($encoding == null) {
@@ -208,31 +208,30 @@ class FileService
         try {
             $file_path = self::makeFilePath($filename, $app);
             if (file_exists($file_path)) {
+                //http_response_code(201);
+                header('Content-Description: File Transfer');
+                header('Content-Type: ' . self::readFileMIME($file_path));
+                header('Content-Disposition: attachment; filename="' . basename($filename) . '"');
+                header('Expires: 0');
+                header('Cache-Control: must-revalidate');
+                header('Content-Length: ' . filesize($file_path));
                 $bytes = readfile($file_path);
                 if (FALSE == $bytes) {
                     return new Response($app[500], 500);
                 } else {
-                    /*
-                    //http_response_code(201);
-                    header('Content-Description: File Transfer');
-                    header('Content-Type: ' . self::readFileMIME($file_path));
-                    header('Content-Disposition: attachment; filename="' . basename($filename) . '"');
-                    header('Expires: 0');
-                    header('Cache-Control: must-revalidate');
-                    header('Pragma: public');
-                    header('Content-Length: ' . filesize($file_path));
-                    exit; //TODO что делает?
-                    */
-                    // Generate response
-                    $response = new Response();
-                    $response->headers->set('Content-type', self::readFileMIME($file_path));
-                    $response->headers->set('Content-Disposition', 'attachment; filename="' . basename($filename) . '";');
-                    $response->headers->set('Content-length', filesize($file_path));
-                    $response->setStatusCode(201);
-                    // Send headers before outputting anything
-                    $response->setContent(file_get_contents($filename));
-                    return $response;
+                    exit;
                 }
+
+                /*
+                // Generate response
+                $response = new Response();
+                $response->headers->set('Content-type', self::readFileMIME($file_path));
+                $response->headers->set('Content-Disposition', 'attachment; filename="' . basename($filename) . '";');
+                $response->headers->set('Content-length', filesize($file_path));
+                $response->setStatusCode(201);
+                // Send headers before outputting anything
+                $response->setContent(file_get_contents($filename));
+                return $response;*/
             } else {
                 //TODO log
                 return new Response($app[404], 404);

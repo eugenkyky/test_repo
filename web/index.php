@@ -66,12 +66,8 @@ $handler->setHandler(function ($exception) use ($app) {
 });*/
 
 $app->error(function (\Exception $e, $code) {
-    // Something that build a nice \Symfony\Component\HttpFoundation\Response. This part is up to you.
-    //$response = MyExceptionFormatter::format($exception, $code);
-    //$response = MyExceptionFormatter::format($exception, $code);
-    // A Silex exception handler must return a Response.
     //TODO log and stat
-    return new Response(\Services\FileService::$CODE_500_TEXT, 500);
+    return new Response('Internal Server Error', 500);
 });
 
 
