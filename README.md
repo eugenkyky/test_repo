@@ -15,7 +15,7 @@ $ vagrant up
 
 ## Usage
 
-After the whole environment was set (deploying code can be found in ```deploy.sh```) you can connect to the virtual machine and perform tests
+After the whole environment was set (deploying code can be found in ```bootstrap.sh```) you can connect to the virtual machine and perform tests
 ```bash
 $ vagrant ssh
 $ cd test_assignment
