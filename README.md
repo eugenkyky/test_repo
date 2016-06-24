@@ -23,17 +23,20 @@ $ vendor/bin/phpunit test/Services/..
 ```
 
 You can delete users files by executing next:
-$ sudo rm * /users_files/user/
+```bash
+$ sudo rm users_files/user/*
+```
 
 ## Documentation
 
-### HTTP service API 
-
-	create file:  	HTTP POST /files/{filename}  
-	update file:  	HTTP PUT  /files/{filename}
-	download file:  HTTP GET  /files/{filename}
-	get file meta:  HTTP GET  /files/{filename}/meta
-	get file list:  HTTP GET  /files
+### HTTP API methods:
+```
+Сreate file:  	HTTP POST /files/{filename}  
+Update file:  	HTTP PUT  /files/{filename}
+Download file:  HTTP GET  /files/{filename}
+Get file meta:  HTTP GET  /files/{filename}/meta
+Get file list:  HTTP GET  /files
+```
 
 ### Additional features
 
@@ -50,11 +53,13 @@ $ sudo rm * /users_files/user/
 Download and upload file optimization (first of all the memory use)
 The best way for working with RAM memory will be implantation opportunity to work with chunks of files.
 The bottom line is that just would not work with a whole file in the code to handle requests, but only whith part of file, determined by the byte order.
+
 Thus we obtain the following advantages:
-1) Renewable upload/download file
-2) Smoothing memory consumption peaks
-3) Work with very large files
-4) Processing a particular file chunk
+
+1. Renewable upload/download file
+2. Smoothing memory consumption peaks
+3. Work with very large files
+4. Processing a particular file chunk
 
 Approximate algorithm:
 Downloading from server:
@@ -93,7 +98,7 @@ Ability to work directly with a file should be left on the server for opportunit
 Typically this feature is enabled by web-server. Will reduce the delivery time.
 
 #### Gzip request support
-This option enables by request url parameter 'file_encode' and setiing value to 'gzip'. 
+This option enables by request url parameter ```file_encode``` and setiing value to ```gzip```. 
 
 #### File storage in compressed form
 I don't think that it is necessary to implement this mechanism for the following reasons:
@@ -105,7 +110,7 @@ See download and upload file optimization section
 
 #### Concurrent access to file
 
-In the case of work with the whole file realised functionality is enough. Function Filesystem->dumpFile() works atomically. File that the user read is always either old version or completely new version of the file. If server needs to work with parts of the file, we need to use a mutex, LockHandler function of Symfony framework to lock the file at the time of working with them.
+In the case of work with the whole file realised functionality is enough. Function ```Filesystem->dumpFile()``` works atomically. File that the user read is always either old version or completely new version of the file. If server needs to work with parts of the file, we need to use a mutex, LockHandler function of Symfony framework to lock the file at the time of working with them.
 Like that:
 
 ```php
