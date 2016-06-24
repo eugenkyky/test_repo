@@ -7,7 +7,8 @@ The most convenient way is to use Vagrant for deploy working enviroment. For thi
 $ cd ~
 $ mkdir test_assignment
 $ cd test_assignment
-$ wget https://raw.githubusercontent.com/eugenkyky/xsolla_test_repo/master/deploy.sh
+$ wget 'https://raw.githubusercontent.com/eugenkyky/xsolla_test_repo/master/deploy.sh'
+$ wget 'https://raw.githubusercontent.com/eugenkyky/xsolla_test_repo/master/Vagrantfile'
 $ vagrant box add hashicorp/precise64
 $ vagrant init
 $ vagrant up
