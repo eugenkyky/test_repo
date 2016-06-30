@@ -27,7 +27,7 @@ sudo mkdir users_files &&
 sudo mkdir users_files/user &&
 sudo nohup php -S 127.0.0.1:80 web/index.php &&
 echo "Deploy task succeded" &&
-exit
+exit 0
 
 
 
