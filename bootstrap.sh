@@ -25,8 +25,9 @@ mysql --user="root" --password="qwer1234" --database="xsolla" --execute="insert 
 #create users dir
 sudo mkdir users_files &&
 sudo mkdir users_files/user &&
-echo "Deploy task succeded"
-
+sudo nohup php -S 127.0.0.1:80 web/index.php &&
+echo "Deploy task succeded" &&
+exit
 
 
 
