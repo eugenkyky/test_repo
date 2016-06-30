@@ -107,7 +107,7 @@ I don't think that it is necessary to implement this mechanism for the following
 2. Long-term memory - not an expensive resource.
 
 #### HTTP caching
-We can't cache HTTPS traffic
+In my approach I use https for protect transmitting a secret code. We can't cache HTTPS.
 
 #### Serving very big files
 See download and upload file optimization section
