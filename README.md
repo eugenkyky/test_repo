@@ -19,7 +19,7 @@ After the whole environment was set (deploying code can be found in ```bootstrap
 ```bash
 $ vagrant ssh
 $ cd test_assignment
-$ vendor/bin/phpunit test/Services/..
+$ vendor/bin/phpunit tests/Services/FileServiceTest.php 
 ```
 
 You can delete users files by executing next:
@@ -31,7 +31,7 @@ $ sudo rm users_files/user/*
 
 ### HTTP API methods:
 ```
-Сreate file:  	HTTP POST /files/{filename}  
+Сreate file:  	 HTTP POST /files/{filename}  
 Update file:  	HTTP PUT  /files/{filename}
 Download file:  HTTP GET  /files/{filename}
 Get file meta:  HTTP GET  /files/{filename}/meta
@@ -50,7 +50,7 @@ Get file list:  HTTP GET  /files
 * github
 
 #### Optimization
-Download and upload file optimization (first of all the memory use)
+##### Download and upload file optimization (first of all the memory use)
 The best way for working with RAM memory will be implantation opportunity to work with chunks of files.
 The bottom line is that just would not work with a whole file in the code to handle requests, but only whith part of file, determined by the byte order.
 
@@ -102,6 +102,7 @@ This option enables by request url parameter ```file_encode``` and setiing value
 
 #### File storage in compressed form
 I don't think that it is necessary to implement this mechanism for the following reasons:
+
 1. In the case of transmission chunks of a file for each new request server needs to decompress the entire file that would read the part. Keeping in RAM unzipped file is unreasonable for consumption of RAM.
 2. Long-term memory - not an expensive resource.
 
@@ -115,9 +116,9 @@ Like that:
 
 ```php
 use Symfony\Component\Filesystem\LockHandler;
-$lockHandler = new LockHandler('hello.lock');
+$lockHandler = new LockHandler('resource.lock');
 if (!$lockHandler->lock()) {
-    // the resource "hello" is already locked by another process
+    // the resource "resource" is already locked by another process
     return Response('Oops');
 } else {
 	doWork();
@@ -155,3 +156,6 @@ Tuned Vagrant
 
 #### Other
 Right Content-Type in headers for each file
+
+#### API architecture description operating with high load 
+You can read it here: https://www.dropbox.com/s/8636100x4f47l1l/Highload%20Architecture.docx?dl=0
