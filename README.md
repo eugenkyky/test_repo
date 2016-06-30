@@ -19,6 +19,7 @@ After the whole environment was set (deploying code can be found in ```bootstrap
 ```bash
 $ vagrant ssh
 $ cd test_assignment
+$ sudo nohup php -S 127.0.0.1:80 web/index.php &
 $ vendor/bin/phpunit tests/Services/FileServiceTest.php 
 ```
 
