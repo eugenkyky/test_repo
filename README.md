@@ -106,6 +106,9 @@ I don't think that it is necessary to implement this mechanism for the following
 1. In the case of transmission chunks of a file for each new request server needs to decompress the entire file that would read the part. Keeping in RAM unzipped file is unreasonable for consumption of RAM.
 2. Long-term memory - not an expensive resource.
 
+#### HTTP caching
+We can't cache HTTPS traffic
+
 #### Serving very big files
 See download and upload file optimization section
 
@@ -132,6 +135,8 @@ In my work authenticated user has the ability to write only in single directory 
 
 I think it makes no sense to do a limit on the size of uploaded files as user files can be huge and this can be critical for him. Correctly use the file upload by chunks and install the server limit on the size of the each request.
 
+#### HTTPS
+Enables using the settings on the server
 
 #### API authorization mechanism 
 First, when user is authenticated he gets read/write access to the folder.
