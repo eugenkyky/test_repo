@@ -158,4 +158,4 @@ Tuned Vagrant
 Right Content-Type in headers for each file
 
 #### API architecture description operating with high load 
-You can read it here: https://www.dropbox.com/s/8636100x4f47l1l/Highload%20Architecture.docx?dl=0
+You can read it here: https://www.dropbox.com/s/eilhe6vgx9yok9u/Highload%20Architecture.docx?dl=0
