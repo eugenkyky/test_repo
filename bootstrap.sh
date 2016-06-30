@@ -12,6 +12,7 @@ sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again p
 sudo apt-get install mysql-server -y &&
 sudo apt-get install mysql-client -y &&
 git clone https://github.com/eugenkyky/test_repo.git test_assignment &&
+sudo chown vagrant tests &&
 #composer get additional packages
 cd test_assignment &&
 sudo composer install &&
