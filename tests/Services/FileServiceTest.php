@@ -49,6 +49,8 @@ class FileServiceTest extends \PHPUnit_Framework_TestCase
         }
     }
 
+
+
     public function testCreateFile()
     {
         $body = fopen(__DIR__.'/testfile.txt', 'r');
@@ -63,6 +65,22 @@ class FileServiceTest extends \PHPUnit_Framework_TestCase
         $fs->dumpFile(__DIR__.'\downloaded_file.txt', $response->getBody());
         $this->assertStringEqualsFile(__DIR__.'\downloaded_file.txt','Test was passed successfully!');
         unlink(__DIR__.'\downloaded_file.txt');
+    }
+    
+    /**
+     * @depends testCreateFile
+     */
+    public function testCreateExistingFile()
+    {
+        try {
+            $body = fopen(__DIR__.'/testfile.txt', 'r');
+            //create on server
+            $this->client->request('POST',  self::SERVER_BASE_ADDRESS.'/files/testfile.txt?apikey=apikey', ['body' => $body]);
+        }
+        catch (GuzzleHttp\Exception\ClientException $e) {
+            $response = $e->getResponse();
+            $this->assertEquals(409, $response->getStatusCode());
+        }
     }
 
 

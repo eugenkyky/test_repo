@@ -34,6 +34,7 @@ $app->error(function (\Exception $e, $code) {
 $app['em'] = $entityManager; // from bootstrap.php
 $app['quota'] = 1000000 ;    // 1 мегабайт
 
+
 //SECURITY
 $app->register(new Services\Security\ApiKeyUserServiceProvider($app));
 $app->register(new Services\Security\ApiKeyAuthenticationServiceProvider(), array(
