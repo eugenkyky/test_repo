@@ -5,7 +5,7 @@ use Silex\{Application, ServiceProviderInterface};
 use Symfony\Component\Security\Core\Authentication\Provider\SimpleAuthenticationProvider,
     Symfony\Component\Security\Http\Firewall\SimplePreAuthenticationListener;
 
-require 'ApiKeyAuthenticator.php';
+require_once 'ApiKeyAuthenticator.php';
 
 class ApiKeyAuthenticationServiceProvider implements ServiceProviderInterface
 {

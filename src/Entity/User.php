@@ -45,7 +45,6 @@ class User implements UserInterface
 
     public function getSalt()
     {
-        // you *may* need a real salt depending on your encoder
         return null;
     }
 

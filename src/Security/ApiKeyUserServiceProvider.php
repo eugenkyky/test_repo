@@ -5,7 +5,7 @@ namespace Services\Security;
 use Silex\Application,
     Silex\ServiceProviderInterface;
 
-require 'ApiKeyUserProvider.php';
+require_once 'ApiKeyUserProvider.php';
 
 class ApiKeyUserServiceProvider implements ServiceProviderInterface
 {

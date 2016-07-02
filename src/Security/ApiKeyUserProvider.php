@@ -5,7 +5,7 @@ namespace Services\Security;
 use Symfony\Component\Security\Core\User\{UserProviderInterface,UserInterface};
 use Symfony\Component\Security\Core\Exception\{UnsupportedUserException,AuthenticationException };
 
-require __DIR__.'/../Entity/User.php';
+require_once __DIR__.'/../Entity/User.php';
 
 class ApiKeyUserProvider implements UserProviderInterface
 {
@@ -23,7 +23,6 @@ class ApiKeyUserProvider implements UserProviderInterface
 
     public function loadUserByUsername($username): UserInterface
     {
-        //TODO
         /*
         finding user data
         $userData = db('select ..');

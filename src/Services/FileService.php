@@ -112,7 +112,7 @@ class FileService
                 }
                 $attempting_consumed_place = $current_consumed_place + strlen($content);
                 if ($attempting_consumed_place > $app['quota']) {
-                    return new Response('Disk usage limit exceeded', 409);
+                    return new Response('Disk limit has been exceeded', 409);
                 } else {
                     $fs = new Filesystem();
                     $fs->dumpFile($file_path, $content);
@@ -208,30 +208,15 @@ class FileService
         try {
             $file_path = self::makeFilePath($filename, $app);
             if (file_exists($file_path)) {
-                //http_response_code(201);
                 header('Content-Description: File Transfer');
                 header('Content-Type: ' . self::readFileMIME($file_path));
                 header('Content-Disposition: attachment; filename="' . basename($filename) . '"');
                 header('Expires: 0');
                 header('Cache-Control: must-revalidate');
                 header('Content-Length: ' . filesize($file_path));
-                $bytes = readfile($file_path);
-                if (FALSE == $bytes) {
-                    return new Response($app[500], 500);
-                } else {
-                    exit;
-                }
+                readfile($file_path);
+                exit;
 
-                /*
-                // Generate response
-                $response = new Response();
-                $response->headers->set('Content-type', self::readFileMIME($file_path));
-                $response->headers->set('Content-Disposition', 'attachment; filename="' . basename($filename) . '";');
-                $response->headers->set('Content-length', filesize($file_path));
-                $response->setStatusCode(201);
-                // Send headers before outputting anything
-                $response->setContent(file_get_contents($filename));
-                return $response;*/
             } else {
                 //TODO log
                 return new Response($app[404], 404);
