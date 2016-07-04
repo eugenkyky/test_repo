@@ -137,7 +137,7 @@ In my work authenticated user has the ability to write only in single directory 
 I think it makes no sense to do a limit on the size of uploaded files as user files can be huge and this can be critical for him. Correctly use the file upload by chunks and install the server limit on the size of the each request.
 
 #### HTTPS
-Enables using the settings on the server
+Enables by using the settings on the server
 
 #### API authorization mechanism 
 When user is authenticated he gets read/write access to the folder.
